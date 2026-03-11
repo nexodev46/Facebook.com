@@ -283,6 +283,19 @@ input {
         min-height: 100vh; /* Centra el contenido verticalmente */
     }
 
+    /* --- ESTILO PARA EL TÍTULO EN MÓVIL --- */
+.titulo-celular {
+    display: block !important; /* Lo hacemos visible */
+    color: white !important;
+    font-size: 30px !important; /* Tamaño grande y legible */
+    font-weight: 800;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px; /* Espacio antes de los cuadros de texto */
+    font-family: sans-serif;
+}
+
+
     /* Ocultar elementos de escritorio */
     .main-text, .collage-area, .left-panel .main-text, .footer-container {
         display: none !important;
@@ -374,5 +387,6 @@ input {
         gap: 5px;
         font-size: 14px;
     }
+
 }
 
