@@ -215,3 +215,30 @@ input {
     border-color: #0652d1;     /* El borde también se oscurece un poco */
     transition: background-color 0.3s; /* Hace que el cambio sea suave y no brusco */
 }
+
+
+
+/* Esto solo se aplica a celulares (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    /* Ocultamos el texto grande */
+    .main-text {
+        display: none;
+    }
+
+    /* Ocultamos el collage de fotos si estorba en móvil */
+    .collage-area {
+        display: none;
+    }
+
+    /* Centramos el logo para que se vea bien arriba del formulario */
+    .left-panel {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    .logo {
+        width: 60px; /* Ajusta el tamaño del icono en celular */
+        margin: 0 auto;
+    }
+}
