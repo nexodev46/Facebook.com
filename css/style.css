@@ -264,12 +264,115 @@ input {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para que se vea moderno */
 }
 
-/* Ajuste para que en el celular se vea centrado */
+
+
+
+
+
+
+
+/* Esto solo se aplica a celulares (pantallas menores a 768px) */
 @media (max-width: 768px) {
-    .left-panel {
+    /* Fondo oscuro y texto blanco para todo el celular */
+    body {
+        background-color: #1c2b33 !important; /* El color exacto de la captura */
+        color: white !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Centra el contenido verticalmente */
+    }
+
+    /* Ocultar elementos de escritorio */
+    .main-text, .collage-area, .left-panel .main-text, .footer-container {
+        display: none !important;
+    }
+
+    /* Ajuste del contenedor principal en móvil */
+    .main-container {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Contenedor del Login: Centrado y con ancho máximo */
+    .login-container {
+        width: 100%;
+        max-width: 380px; /* Evita que se estiren demasiado */
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        align-items: center;    /* Asegura que el logo esté al centro */
-        text-align: center;
+        align-items: center; /* Centra los elementos internos */
+    }
+
+    /* Título: Ocultar el viejo o agrandar el nuevo */
+    .login-container h2 {
+        display: none; /* Ocultamos el título viejo si lo tienes */
+    }
+
+    /* --- DISEÑO DE LOS "CUADRADITOS" (INPUTS) --- */
+    input {
+        width: 100%;
+        max-width: 350px; /* Ancho compacto */
+        padding: 18px 25px; /* Más alto, relleno interno */
+        margin-bottom: 15px; /* Espacio entre inputs */
+        background-color: #243640; /* Fondo oscuro de input */
+        border: 1px solid #3e4f59; /* Borde gris sutil */
+        border-radius: 15px; /* Bordes MUY redondeados */
+        color: white;
+        font-size: 16px; /* Letra más grande y legible */
+    }
+
+    input::placeholder {
+        color: #8a969c; /* Color grisáceo del placeholder */
+    }
+
+    /* --- DISEÑO DEL BOTÓN "INICIAR SESIÓN" --- */
+    .login-btn {
+        width: 100%;
+        max-width: 350px;
+        background-color: #1877f2; /* Azul Facebook */
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 25px; /* Bordes tipo píldora */
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    /* Enlace: ¿Olvidaste tu contraseña? */
+    .forgot {
+        color: white !important;
+        margin: 20px 0 50px 0; /* Espacio grande abajo */
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    /* --- DISEÑO DEL BOTÓN "CREAR CUENTA NUEVA" --- */
+    .create-btn {
+        width: 100%;
+        max-width: 350px;
+        background-color: transparent;
+        border: 1px solid #1877f2;
+        color: #1877f2;
+        padding: 12px;
+        border-radius: 25px; /* Bordes tipo píldora */
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    /* Logo de Meta al final */
+    .meta-brand {
+        margin-top: 30px;
+        color: #8a969c;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
     }
 }
+
