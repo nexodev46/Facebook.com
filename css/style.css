@@ -1,0 +1,217 @@
+:root {
+    --fb-blue: #0866FF;
+    --fb-gray: #F0F2F5;
+    --text-dark: #1C1E21;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+body { background: white; color: var(--text-dark); overflow-x: hidden; }
+
+.wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+
+.main-container {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* --- PANEL IZQUIERDO --- */
+.left-panel {
+    flex: 1.2;
+    padding: 40px;
+    position: relative;
+    border-right: 1px solid #ddd; 
+}
+
+.logo { width: 45px; margin-bottom: 20px; }
+
+/* LAS LETRAS MÁS ARRIBA */
+.main-text { 
+    font-size: 65px; 
+    margin-top: -60px; /* Valor negativo para subir el texto */
+    line-height: 0.9; 
+    font-weight: 800; 
+    letter-spacing: -2px; 
+    z-index: 1;
+    position: relative;
+}
+.main-text span { color: var(--fb-blue); }
+
+/* --- COLLAGE --- */
+.collage-area { 
+    position: relative; 
+    height: 480px; 
+    width: 100%; 
+    margin-bottom: 30px; 
+    transform: translateX(80px); 
+}
+
+.emoji { position: absolute; top: -10px; left: 10px; font-size: 45px; z-index: 5; }
+
+.card { position: absolute; border-radius: 12px; background: #ddd; background-size: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+.card-knot { 
+    width: 140px; height: 140px; 
+    top: 45px; left: 26px; 
+    transform: rotate(-5deg); 
+    z-index: 1; 
+    background-image: url('https://static.vecteezy.com/system/resources/previews/039/657/017/non_2x/ai-generated-freshness-of-nature-yellow-flower-pot-green-potted-plant-generated-by-ai-free-photo.jpg'); 
+}
+
+.card-skater { 
+    position: absolute;
+    width: 250px; height: 300px; 
+    top: 1px; left: 175px; 
+    z-index: 3; 
+    background-image: url('https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=400'); 
+    overflow: visible; 
+}
+
+.card-tickets { 
+    width: 130px; height: 170px; 
+    top: 170px; left: 50px; 
+    z-index: 4; 
+    background-image: url('https://images.unsplash.com/photo-1549417229-aa67d3263c09?w=200'); 
+}
+
+.blue-icon { 
+    background: var(--fb-blue); color: white; 
+    width: 25px; height: 25px; 
+    display: flex; align-items: center; justify-content: center; 
+    border-radius: 4px; margin: 10px; font-size: 12px;
+}
+
+/* PERFIL (Círculo Azul) */ si pongo mi copre
+.profile-circle {
+    position: absolute; 
+    bottom: -100px; 
+    left: 50%;
+    transform: translateX(-30%); 
+    width: 130px; height: 130px;
+    border-radius: 160%; 
+    border: 4px solid var(--fb-blue); 
+    z-index: 10;
+    top: 250px; left: 50px; 
+    top: 250px; left: 50px; 
+    background: url('https://img.freepik.com/fotos-premium/mujer-modelo-sonriendo_909109-785.jpg') center/cover;
+}
+
+
+.time-badge { 
+    position: absolute; 
+    top: 38px;      /* Un poco más arriba para que no flote tanto */
+    right: -15px;     /* Reducido para que se mueva más a la derecha */
+    background: #613ee0; 
+    color: white; 
+    padding: 4px 12px; /* Proporción ideal para que no sea muy gigante el óvalo */
+    border-radius: 25px; 
+    font-size: 15px;   /* Letra más grande como pediste */
+    
+}
+
+/* --- PANEL DERECHO --- */
+.right-panel { flex: 0.8; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+.login-container { width: 100%; max-width: 380px; text-align: center; }
+
+.login-container h2 { font-size: 15px; margin-bottom: 20px; text-align: left; padding-left: 5px; }
+
+input {
+    width: 100%; padding: 14px; margin-bottom: 12px;
+    border: 1px solid #dddfe2; border-radius: 10px; font-size: 12px;
+}
+
+.login-btn {
+    width: 100%; background: var(--fb-blue); color: white; border: none;
+    padding: 12px; border-radius: 25px; font-size: 12px; font-weight: bold; cursor: pointer;
+    
+    
+}
+
+.login-btn:hover {
+    background: #0652d1; /* Se oscurece un poco al pasar el mouse */
+}
+
+.forgot { display: block; margin: 20px 0; color: #1c1e21; text-decoration: none; font-size: 14px; font-weight: 500; }
+
+.create-btn {
+    width: 100%; background: white; border: 1px solid var(--fb-blue);
+    color: var(--fb-blue); padding: 12px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer;
+}
+
+.meta-brand { margin-top: 25px; color: #606770; font-size: 14px; display: flex; align-items: center; gap: 5px; }
+
+.footer-languages { padding: 20px; text-align: center; font-size: 12px; color: #737373; word-spacing: 15px; border-top: 1px solid #ddd; }
+
+/* MÓVIL */
+@media (max-width: 900px) {
+    .main-container { flex-direction: column; }
+    .left-panel { border-right: none; text-align: center; }
+    .collage-area { display: none; } 
+}
+
+
+
+/* --- ESTILOS DEL PIE DE PÁGINA (CORREGIDO) --- */
+.footer-container {
+    background: white;
+    padding: 20px 0 40px 0;
+    width: 100%;
+    clear: both; /* Evita que se mezcle con los paneles de arriba */
+    border-top: 1px solid #ddd; /* Raya inicial opcional o para el wrapper */
+}
+
+.footer-content {
+    max-width: 1000px; /* Ancho para que el texto no se estire demasiado */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #8a8d91; /* Gris de los enlaces inferiores */
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+
+/* Estilo para los idiomas (bloque superior) */
+.languages {
+    color: #737373;
+    margin-bottom: 10px;
+}
+
+.footer-row span {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.footer-row span:hover {
+    text-decoration: underline;
+}
+
+/* LA RAYA CENTRAL: Obliga a todo lo demás a ir abajo */
+.footer-divider {
+    height: 1px;
+    background-color: #dddfe2; /* Color gris de la imagen */
+    width: 100%;
+    display: block;
+    margin: 10px 0 15px 0;
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #737373;
+}
+
+.create-btn:hover {
+    background-color: #f2f2f2; /* Un gris muy claro para que se note el cambio */
+    border-color: #0652d1;     /* El borde también se oscurece un poco */
+    transition: background-color 0.3s; /* Hace que el cambio sea suave y no brusco */
+}
