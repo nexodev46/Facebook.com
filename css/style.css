@@ -271,30 +271,20 @@ input {
 
 
 
+
+
+
 /* Esto solo se aplica a celulares (pantallas menores a 768px) */
 @media (max-width: 768px) {
     /* Fondo oscuro y texto blanco para todo el celular */
     body {
-        background-color: #1c2b33 !important; /* El color exacto de la captura */
+        background-color: #1c2b33 !important; 
         color: white !important;
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh; /* Centra el contenido verticalmente */
+        min-height: 100vh; 
     }
-
-    /* --- ESTILO PARA EL TÍTULO EN MÓVIL --- */
-.titulo-celular {
-    display: block !important; /* Lo hacemos visible */
-    color: white !important;
-    font-size: 30px !important; /* Tamaño grande y legible */
-    font-weight: 800;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 30px; /* Espacio antes de los cuadros de texto */
-    font-family: sans-serif;
-}
-
 
     /* Ocultar elementos de escritorio */
     .main-text, .collage-area, .left-panel .main-text, .footer-container {
@@ -311,44 +301,55 @@ input {
     /* Contenedor del Login: Centrado y con ancho máximo */
     .login-container {
         width: 100%;
-        max-width: 380px; /* Evita que se estiren demasiado */
+        max-width: 380px; 
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centra los elementos internos */
+        align-items: center; 
     }
 
-    /* Título: Ocultar el viejo o agrandar el nuevo */
-    .login-container h2 {
-        display: none; /* Ocultamos el título viejo si lo tienes */
+    /* --- NUEVO: ESTILO PARA EL TÍTULO EN MÓVIL --- */
+    .titulo-login {
+        display: block !important;
+        font-size: 20px !important;    /* Tamaño moderado como pediste */
+        font-weight: 500 !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        margin-top: 10px !important;   /* Separación del logo azul */
+        margin-bottom: 25px !important; /* Separación de los cuadros */
+    }
+
+    /* Título: Ocultar el h2 viejo si no tiene la clase correcta */
+    .login-container h2:not(.titulo-login) {
+        display: none; 
     }
 
     /* --- DISEÑO DE LOS "CUADRADITOS" (INPUTS) --- */
     input {
         width: 100%;
-        max-width: 350px; /* Ancho compacto */
-        padding: 18px 25px; /* Más alto, relleno interno */
-        margin-bottom: 15px; /* Espacio entre inputs */
-        background-color: #243640; /* Fondo oscuro de input */
-        border: 1px solid #3e4f59; /* Borde gris sutil */
-        border-radius: 15px; /* Bordes MUY redondeados */
+        max-width: 350px; 
+        padding: 18px 25px; 
+        margin-bottom: 15px; 
+        background-color: #243640; 
+        border: 1px solid #3e4f59; 
+        border-radius: 15px; 
         color: white;
-        font-size: 16px; /* Letra más grande y legible */
+        font-size: 16px; 
     }
 
     input::placeholder {
-        color: #8a969c; /* Color grisáceo del placeholder */
+        color: #8a969c; 
     }
 
     /* --- DISEÑO DEL BOTÓN "INICIAR SESIÓN" --- */
     .login-btn {
         width: 100%;
         max-width: 350px;
-        background-color: #1877f2; /* Azul Facebook */
+        background-color: #1877f2; 
         color: white;
         border: none;
         padding: 16px;
-        border-radius: 25px; /* Bordes tipo píldora */
+        border-radius: 25px; 
         font-size: 16px;
         font-weight: 600;
         margin-top: 10px;
@@ -358,7 +359,7 @@ input {
     /* Enlace: ¿Olvidaste tu contraseña? */
     .forgot {
         color: white !important;
-        margin: 20px 0 50px 0; /* Espacio grande abajo */
+        margin: 20px 0 50px 0; 
         font-size: 15px;
         font-weight: 500;
         text-decoration: none;
@@ -372,7 +373,7 @@ input {
         border: 1px solid #1877f2;
         color: #1877f2;
         padding: 12px;
-        border-radius: 25px; /* Bordes tipo píldora */
+        border-radius: 25px; 
         font-size: 15px;
         font-weight: 600;
         cursor: pointer;
@@ -387,6 +388,4 @@ input {
         gap: 5px;
         font-size: 14px;
     }
-
 }
-
