@@ -242,3 +242,34 @@ input {
         margin: 0 auto;
     }
 }
+
+
+
+
+
+/* Estilo del nuevo logo circular */
+.logo-fb-custom {
+    width: 80px;                /* Ancho fijo para que no se deforme */
+    height: 80px;               /* Alto igual al ancho para un círculo perfecto */
+    background-color: #0866FF;  /* El azul oficial de Facebook */
+    border-radius: 50%;         /* Esto crea el círculo */
+    display: flex;
+    justify-content: center;    /* Centra la 'f' horizontalmente */
+    align-items: center;        /* Centra la 'f' verticalmente */
+    color: white;               /* Color de la letra */
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 60px;            /* Tamaño de la 'f' */
+    font-weight: bold;
+    margin: 0 auto 20px auto;   /* Lo centra en la pantalla y da espacio abajo */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para que se vea moderno */
+}
+
+/* Ajuste para que en el celular se vea centrado */
+@media (max-width: 768px) {
+    .left-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    /* Asegura que el logo esté al centro */
+        text-align: center;
+    }
+}
