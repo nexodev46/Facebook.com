@@ -269,36 +269,47 @@ input {
 
 
 
+
+
 /* Esto solo se aplica a celulares (pantallas menores a 768px) */
 @media (max-width: 768px) {
-    /* Fondo BLANCO y alineación desde arriba */
+    /* Fondo BLANCO para coincidir con la captura oficial */
     body {
         background-color: #ffffff !important; 
         color: #1c1e21 !important;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
         min-height: 100vh;
         margin: 0;
         padding: 0;
     }
 
-    /* Ocultar elementos innecesarios */
+    /* Ocultar elementos de escritorio que no van en la App móvil */
     .main-text, .collage-area, .left-panel .main-text, .footer-container, .login-container h2 {
         display: none !important;
     }
 
-    /* Contenedor principal */
+    /* Ajuste del contenedor principal para que fluya hacia abajo */
     .main-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        padding-top: 80px; /* Bajar el logo a la altura de la captura */
+        padding-top: 50px; /* Espacio para bajar el logo */
     }
 
-    /* Logo Circular Azul - AJUSTADO */
+    /* Contenedor del Login */
+    .login-container {
+        width: 100%;
+        max-width: 90%; /* Ajuste para que no toque los bordes del cel */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    /* Logo Circular (el de la "f" azul) */
     .logo-fb-custom {
         width: 80px;
         height: 80px;
@@ -308,32 +319,21 @@ input {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 65px; /* Tamaño de letra 'f' más preciso */
+        font-size: 60px;
         font-weight: bold;
         font-family: Arial, sans-serif;
-        margin-bottom: 50px;
-        /* La f suele estar ligeramente desplazada a la derecha y abajo en el logo real */
-        padding-left: 5px;
-        padding-top: 10px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* Contenedor del Login */
-    .login-container {
-        width: 100%;
-        max-width: 90%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* --- INPUTS ESTILO APP (Gris muy claro) --- */
+    /* --- DISEÑO DE LOS INPUTS (Bordes suaves y fondo grisáceo) --- */
     input {
         width: 100%;
-        padding: 18px 20px;
+        padding: 16px 20px;
         margin-bottom: 12px;
-        background-color: #f5f6f7; 
+        background-color: #f5f6f7; /* Gris muy claro de la App */
         border: 1px solid #dddfe2;
-        border-radius: 12px; 
+        border-radius: 12px; /* Bordes redondeados exactos */
         color: #1c1e21;
         font-size: 16px;
     }
@@ -342,29 +342,30 @@ input {
         color: #8d949e;
     }
 
-    /* --- BOTÓN INICIAR SESIÓN (Píldora Azul) --- */
+    /* --- BOTÓN "INICIAR SESIÓN" (Tipo Píldora) --- */
     .login-btn {
         width: 100%;
         background-color: #1877f2;
         color: white;
         border: none;
         padding: 14px;
-        border-radius: 25px;
+        border-radius: 25px; /* Forma de píldora */
         font-size: 16px;
         font-weight: 600;
         margin-top: 10px;
+        cursor: pointer;
     }
 
-    /* Enlace Olvidaste tu contraseña */
+    /* Enlace: ¿Olvidaste tu contraseña? */
     .forgot {
         color: #1c1e21 !important;
-        margin: 30px 0 80px 0;
+        margin: 25px 0 60px 0;
         font-size: 15px;
         font-weight: 500;
         text-decoration: none;
     }
 
-    /* --- BOTÓN CREAR CUENTA (Borde Azul) --- */
+    /* --- BOTÓN "CREAR CUENTA NUEVA" --- */
     .create-btn {
         width: 100%;
         background-color: transparent;
@@ -374,23 +375,19 @@ input {
         border-radius: 25px;
         font-size: 15px;
         font-weight: 600;
+        cursor: pointer;
+        margin-bottom: 20px;
     }
 
-    /* Footer Meta */
+    /* Logo de Meta y Footer */
     .meta-brand {
-        margin-top: 30px;
-        padding-bottom: 30px;
+        margin-top: auto; /* Empuja esto al final de la pantalla */
+        padding-bottom: 20px;
+        color: #4b4f56;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 5px;
-        color: #4b4f56;
-        font-size: 13px;
-    }
-    
-    .meta-brand img {
-        width: 20px;
-        filter: grayscale(100%); /* Meta logo suele ser gris en el footer */
-        opacity: 0.7;
+        gap: 8px;
+        font-size: 14px;
     }
 }
