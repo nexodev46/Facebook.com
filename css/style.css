@@ -270,73 +270,85 @@ input {
 
 
 
-
 /* Esto solo se aplica a celulares (pantallas menores a 768px) */
 @media (max-width: 768px) {
-    /* Fondo oscuro y texto blanco para todo el celular */
+    /* Fondo BLANCO para coincidir con la captura oficial */
     body {
-        background-color: #1c2b33 !important; /* El color exacto de la captura */
-        color: white !important;
+        background-color: #ffffff !important; 
+        color: #1c1e21 !important;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        min-height: 100vh; /* Centra el contenido verticalmente */
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
     }
 
-   
-    /* Ocultar elementos de escritorio */
-    .main-text, .collage-area, .left-panel .main-text, .footer-container {
+    /* Ocultar elementos de escritorio que no van en la App móvil */
+    .main-text, .collage-area, .left-panel .main-text, .footer-container, .login-container h2 {
         display: none !important;
     }
 
-    /* Ajuste del contenedor principal en móvil */
+    /* Ajuste del contenedor principal para que fluya hacia abajo */
     .main-container {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px;
-    }
-
-    /* Contenedor del Login: Centrado y con ancho máximo */
-    .login-container {
-        width: 100%;
-        max-width: 380px; /* Evita que se estiren demasiado */
-        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centra los elementos internos */
+        align-items: center;
+        width: 100%;
+        padding-top: 50px; /* Espacio para bajar el logo */
     }
 
-    /* Título: Ocultar el viejo o agrandar el nuevo */
-    .login-container h2 {
-        display: none; /* Ocultamos el título viejo si lo tienes */
+    /* Contenedor del Login */
+    .login-container {
+        width: 100%;
+        max-width: 90%; /* Ajuste para que no toque los bordes del cel */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
     }
 
-    /* --- DISEÑO DE LOS "CUADRADITOS" (INPUTS) --- */
+    /* Logo Circular (el de la "f" azul) */
+    .logo-fb-custom {
+        width: 80px;
+        height: 80px;
+        background-color: #1877f2;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* --- DISEÑO DE LOS INPUTS (Bordes suaves y fondo grisáceo) --- */
     input {
         width: 100%;
-        max-width: 350px; /* Ancho compacto */
-        padding: 18px 25px; /* Más alto, relleno interno */
-        margin-bottom: 15px; /* Espacio entre inputs */
-        background-color: #243640; /* Fondo oscuro de input */
-        border: 1px solid #3e4f59; /* Borde gris sutil */
-        border-radius: 15px; /* Bordes MUY redondeados */
-        color: white;
-        font-size: 16px; /* Letra más grande y legible */
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        background-color: #f5f6f7; /* Gris muy claro de la App */
+        border: 1px solid #dddfe2;
+        border-radius: 12px; /* Bordes redondeados exactos */
+        color: #1c1e21;
+        font-size: 16px;
     }
 
     input::placeholder {
-        color: #8a969c; /* Color grisáceo del placeholder */
+        color: #8d949e;
     }
 
-    /* --- DISEÑO DEL BOTÓN "INICIAR SESIÓN" --- */
+    /* --- BOTÓN "INICIAR SESIÓN" (Tipo Píldora) --- */
     .login-btn {
         width: 100%;
-        max-width: 350px;
-        background-color: #1877f2; /* Azul Facebook */
+        background-color: #1877f2;
         color: white;
         border: none;
-        padding: 16px;
-        border-radius: 25px; /* Bordes tipo píldora */
+        padding: 14px;
+        border-radius: 25px; /* Forma de píldora */
         font-size: 16px;
         font-weight: 600;
         margin-top: 10px;
@@ -345,35 +357,36 @@ input {
 
     /* Enlace: ¿Olvidaste tu contraseña? */
     .forgot {
-        color: white !important;
-        margin: 20px 0 50px 0; /* Espacio grande abajo */
+        color: #1c1e21 !important;
+        margin: 25px 0 60px 0;
         font-size: 15px;
         font-weight: 500;
         text-decoration: none;
     }
 
-    /* --- DISEÑO DEL BOTÓN "CREAR CUENTA NUEVA" --- */
+    /* --- BOTÓN "CREAR CUENTA NUEVA" --- */
     .create-btn {
         width: 100%;
-        max-width: 350px;
         background-color: transparent;
         border: 1px solid #1877f2;
         color: #1877f2;
-        padding: 12px;
-        border-radius: 25px; /* Bordes tipo píldora */
+        padding: 10px;
+        border-radius: 25px;
         font-size: 15px;
         font-weight: 600;
         cursor: pointer;
+        margin-bottom: 20px;
     }
 
-    /* Logo de Meta al final */
+    /* Logo de Meta y Footer */
     .meta-brand {
-        margin-top: 30px;
-        color: #8a969c;
+        margin-top: auto; /* Empuja esto al final de la pantalla */
+        padding-bottom: 20px;
+        color: #4b4f56;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 5px;
+        gap: 8px;
         font-size: 14px;
     }
-
 }
